@@ -1,0 +1,23 @@
+version: '3.6'
+
+services:
+  hdp_analytics:
+    image: hdp_analytics:dev
+    container_name: hdp_analytics
+    restart: unless-stopped
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    environment:
+      # NGINX-PROXY ENVIRONMENT VARIABLES: UPDATE ME
+      - VIRTUAL_HOST=analitica.hablemosdelperu.com
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=analitica.hablemosdelperu.com
+      - LETSENCRYPT_EMAIL=info@hablemosdelperu.com
+      # END NGINX-PROXY ENVIRONMENT VARIABLES
+      - CHOKIDAR_USEPOLLING=true
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
