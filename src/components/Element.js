@@ -24,9 +24,9 @@ const Element = () => {
       <Button
         config={{
           params: {
-            title: 'My share',
-            text: 'Check out this amazing react-share-api library',
-            url: 'https://github.com/marcolanaro/react-web-share-api',
+            title: 'Corrupción!',
+            text: 'Cosas de la corrupción...',
+            files: [corrupcion01],
           },
           /* tslint:disable-next-line:no-console */
           onShareSuccess: () => console.log('Success'),
