@@ -1,0 +1,14 @@
+.headerDiv {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 4px solid #df0000;
+}
+
+.headerP {
+  font-size: 2rem;
+  margin-left: 1rem;
+  line-height: 2rem;
+  color: #df0000;
+}
