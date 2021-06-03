@@ -28,14 +28,18 @@
   margin-top: 186px;
 }
 
+.cardsDiv img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
 .contentParentDiv {
   display: flex;
-  flex: 10;
-  margin-right: 0.2rem;
+  flex: 8;
 }
 
 .shareParentDiv {
   display: flex;
-  margin-left: 0.2rem;
   flex: 1;
 }
