@@ -18,27 +18,27 @@ import {
 
 const Share = ({ shareUrl, text, imageUrl }) => {
   return (
-    <div>
+    <div className="shareDiv">
       <FacebookShareButton url={shareUrl} quote={text} className="shareButton">
-        <FacebookIcon size={32} round />
+        <FacebookIcon round />
       </FacebookShareButton>
       <TwitterShareButton url={shareUrl} quote={text} className="shareButton">
-        <TwitterIcon size={32} round />
+        <TwitterIcon round />
       </TwitterShareButton>
       <WhatsappShareButton url={shareUrl} quote={text} className="shareButton">
-        <WhatsappIcon size={32} round />
+        <WhatsappIcon round />
       </WhatsappShareButton>
       <LinkedinShareButton url={shareUrl} quote={text} className="shareButton">
-        <LinkedinIcon size={32} round />
+        <LinkedinIcon round />
       </LinkedinShareButton>
       <EmailShareButton url={shareUrl} quote={text} className="shareButton">
-        <EmailIcon size={32} round />
+        <EmailIcon round />
       </EmailShareButton>
       <TelegramShareButton url={shareUrl} quote={text} className="shareButton">
-        <TelegramIcon size={32} round />
+        <TelegramIcon round />
       </TelegramShareButton>
       <a href={imageUrl} download>
-        <img src={downloadIcon} width={32} className="shareButton" />
+        <img src={downloadIcon} className="shareButton" />
       </a>
     </div>
   );

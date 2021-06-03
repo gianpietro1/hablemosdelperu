@@ -1,3 +1,17 @@
 .shareButton {
-  margin: 0 0.2rem;
+  max-width: 40px;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+.shareDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  border-left: 1px solid lightgray;
+  padding-left: 1.5rem;
 }

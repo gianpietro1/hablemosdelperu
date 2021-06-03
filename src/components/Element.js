@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import '../assets/styles/element.css';
 import corrupcion01 from '../assets/tempDB/corrupcion01.png';
 import educacion01 from '../assets/tempDB/educacion01.png';
-import corrupcion03 from '../assets/tempDB/corrupcion01.png';
+import politica01 from '../assets/tempDB/politica01.png';
 import Share from './Share';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { Dropdown, Grid, Segment } from 'semantic-ui-react';
+import { Dropdown, Card } from 'semantic-ui-react';
 
 const Element = () => {
   const [topic, setTopic] = useState('');
@@ -25,10 +26,10 @@ const Element = () => {
       anchor: 'educacion-brechas-01',
     },
     {
-      image: corrupcion03,
-      topic: 'Corrupción',
-      subtopic: 'Costo histórico',
-      anchor: 'corrupcion-costo-03',
+      image: politica01,
+      topic: 'Política',
+      subtopic: 'Sufragio universal',
+      anchor: 'politica-sufragio-universal',
     },
   ];
 
@@ -42,7 +43,6 @@ const Element = () => {
       }
       return elements;
     });
-    console.log(filteredElements);
     setFiltered(filteredElements);
   }, [topic, subtopic]);
 
@@ -50,6 +50,7 @@ const Element = () => {
     { key: 0, text: 'Todos', value: '' },
     { key: 1, text: 'Corrupción', value: 'Corrupción' },
     { key: 2, text: 'Educación', value: 'Educación' },
+    { key: 2, text: 'Política', value: 'Política' },
   ];
   const subtopics = {
     Todos: [{ key: 0, text: 'Todos', value: '' }],
@@ -61,59 +62,65 @@ const Element = () => {
       { key: 0, text: 'Todos', value: '' },
       { key: 2, text: 'Brecha de genéro', value: 'Brecha de genéro' },
     ],
+    Política: [
+      { key: 0, text: 'Todos', value: '' },
+      { key: 2, text: 'Sufragio universal', value: 'Sufragio universal' },
+    ],
   };
 
   return (
-    <>
-      <div>
-        <Grid columns={2}>
-          <Grid.Column>
-            <Dropdown
-              onChange={(e, { value }) => {
-                setTopic(value);
-                setSubtopic('');
-              }}
-              options={topics}
-              placeholder="Tema"
-              selection
-              value={topic}
-            />
-          </Grid.Column>
-          <Grid.Column>
-            <Dropdown
-              onChange={(e, { value }) => setSubtopic(value)}
-              options={subtopics[topic]}
-              placeholder="Subtema"
-              selection
-              value={subtopic}
-            />
-          </Grid.Column>
-        </Grid>
+    <div className="contentContainer">
+      <div className="navigationDiv">
+        <Dropdown
+          onChange={(e, { value }) => {
+            setTopic(value);
+            setSubtopic('');
+          }}
+          options={topics}
+          placeholder="Tema"
+          selection
+          value={topic}
+        />
+        <Dropdown
+          onChange={(e, { value }) => setSubtopic(value)}
+          options={subtopics[topic]}
+          placeholder="Subtema"
+          selection
+          value={subtopic}
+        />
       </div>
-      {filtered &&
-        filtered.map((element) => {
-          return (
-            <div style={{ padding: '2rem' }} id={element.anchor}>
-              <AnchorLink href={`#${element.anchor}`}>
-                <p style={{ fontWeight: 'bold' }}>
-                  {element.topic} - {element.subtopic}
-                </p>
-              </AnchorLink>
-              <img
-                src={element.image}
-                style={{ width: '100%', padding: '1rem 0 ' }}
-              />
-              <Share
-                shareUrl={
-                  'https://analitica.hablemosdelperu.com#' + element.anchor
-                }
-                text={`${element.topic} - ${element.subtopic}`}
-                imageUrl={element.image}
-              />
-            </div>
-          );
-        })}
-    </>
+      <div className="cardsDiv">
+        {filtered &&
+          filtered.map((element) => {
+            return (
+              <Card fluid style={{ padding: '1rem' }} id={element.anchor}>
+                <Card.Content>
+                  <Card.Header style={{ marginBottom: '0.5rem' }}>
+                    <AnchorLink offset="200" href={`#${element.anchor}`}>
+                      {element.topic} - {element.subtopic}
+                    </AnchorLink>
+                  </Card.Header>
+                  <div style={{ display: 'flex', flex: 1 }}>
+                    <div className="contentParentDiv">
+                      <img src={element.image} style={{ width: '100%' }} />
+                    </div>
+                    <div className="shareParentDiv">
+                      <Share
+                        shareUrl={
+                          'https://analitica.hablemosdelperu.com#' +
+                          element.anchor
+                        }
+                        text={`${element.topic} - ${element.subtopic}`}
+                        imageUrl={element.image}
+                      />
+                    </div>
+                  </div>
+                </Card.Content>
+              </Card>
+            );
+          })}
+      </div>
+    </div>
   );
 };
 

@@ -1,0 +1,41 @@
+.contentContainer {
+  position: relative;
+  width: inherit;
+}
+
+.navigationDiv {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  top: 113px;
+  left: 0;
+  right: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navigationDiv .ui.selection.dropdown {
+  width: 100%;
+  min-width: 10em !important;
+}
+
+.cardsDiv {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 186px;
+}
+
+.contentParentDiv {
+  display: flex;
+  flex: 10;
+  margin-right: 0.2rem;
+}
+
+.shareParentDiv {
+  display: flex;
+  margin-left: 0.2rem;
+  flex: 1;
+}
