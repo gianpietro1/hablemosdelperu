@@ -1,4 +1,5 @@
 import React from 'react';
+import downloadIcon from '../assets/images/download.png';
 import '../assets/styles/share.css';
 import {
   EmailShareButton,
@@ -15,7 +16,7 @@ import {
   WhatsappIcon,
 } from 'react-share';
 
-const Share = ({ shareUrl, text }) => {
+const Share = ({ shareUrl, text, imageUrl }) => {
   return (
     <div>
       <FacebookShareButton url={shareUrl} quote={text} className="shareButton">
@@ -36,6 +37,9 @@ const Share = ({ shareUrl, text }) => {
       <TelegramShareButton url={shareUrl} quote={text} className="shareButton">
         <TelegramIcon size={32} round />
       </TelegramShareButton>
+      <a href={imageUrl} download>
+        <img src={downloadIcon} width={32} className="shareButton" />
+      </a>
     </div>
   );
 };
