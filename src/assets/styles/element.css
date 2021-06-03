@@ -28,10 +28,10 @@
   margin-top: 186px;
 }
 
-.cardsDiv img {
+.contentParentDiv img {
   display: block;
-  margin: auto;
-  width: 100%;
+  width: auto;
+  height: auto;
 }
 
 .contentParentDiv {

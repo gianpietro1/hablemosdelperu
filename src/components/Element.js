@@ -102,7 +102,10 @@ const Element = () => {
                   </Card.Header>
                   <div style={{ display: 'flex', flex: 1 }}>
                     <div className="contentParentDiv">
-                      <img src={element.image} style={{ width: '100%' }} />
+                      <img
+                        src={element.image}
+                        style={{ width: '100%', height: '100%' }}
+                      />
                     </div>
                     <div className="shareParentDiv">
                       <Share
