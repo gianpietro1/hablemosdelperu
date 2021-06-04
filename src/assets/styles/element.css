@@ -8,8 +8,10 @@
   padding: 1rem;
   display: flex;
   position: fixed;
-  z-index: 1000;
-  top: 113px;
+  z-index: 800;
+  height: 120px;
+  top: 55px;
+  align-items: flex-end;
   left: 0;
   right: 0;
   max-width: 800px;
@@ -20,6 +22,7 @@
 .navigationDiv .ui.selection.dropdown {
   width: 100%;
   min-width: 10em !important;
+  max-height: 30px;
 }
 
 .cardsDiv {
