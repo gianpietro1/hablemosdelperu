@@ -95,7 +95,7 @@ const Element = () => {
       <div className="cardsDiv">
         {filtered &&
           filtered.map((element) => {
-            const anchor = element.topic + '-' + element.subtopic;
+            const anchor = encodeURI(element.topic + '-' + element.subtopic);
             return (
               <Card
                 key={element.topic + element.subtopic}
