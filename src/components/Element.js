@@ -9,8 +9,8 @@ import { Dropdown, Card } from 'semantic-ui-react';
 
 const Element = () => {
   const url = window.location.href.split('#')[1];
-  const topicFromUrl = decodeURI(url.split('-')[0]);
-  const subtopicFromUrl = decodeURI(url.split('-')[1]);
+  const topicFromUrl = url ? decodeURI(url.split('-')[0]) : '';
+  const subtopicFromUrl = url ? decodeURI(url.split('-')[1]) : '';
 
   const [topic, setTopic] = useState(topicFromUrl);
   const [subtopic, setSubtopic] = useState(subtopicFromUrl);
