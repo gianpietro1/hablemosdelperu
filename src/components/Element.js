@@ -4,32 +4,35 @@ import corrupcion01 from '../assets/tempDB/corrupcion01.png';
 import educacion01 from '../assets/tempDB/educacion01.png';
 import politica01 from '../assets/tempDB/politica01.png';
 import Share from './Share';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { HashLink as Link } from 'react-router-hash-link';
 import { Dropdown, Card } from 'semantic-ui-react';
 
 const Element = () => {
-  const [topic, setTopic] = useState('');
-  const [subtopic, setSubtopic] = useState('');
+  const url = window.location.href.split('#')[1];
+  const topicFromUrl = decodeURI(url.split('-')[0]);
+  const subtopicFromUrl = decodeURI(url.split('-')[1]);
+
+  const [topic, setTopic] = useState(topicFromUrl);
+  const [subtopic, setSubtopic] = useState(subtopicFromUrl);
   const [filtered, setFiltered] = useState('');
+
+  console.log(topic, subtopic);
 
   const elements = [
     {
       image: corrupcion01,
       topic: 'Corrupción',
       subtopic: 'Costo histórico',
-      anchor: 'corrupcion-costo-01',
     },
     {
       image: educacion01,
       topic: 'Educación',
       subtopic: 'Brecha de genéro',
-      anchor: 'educacion-brechas-01',
     },
     {
       image: politica01,
       topic: 'Política',
       subtopic: 'Sufragio universal',
-      anchor: 'politica-sufragio-universal',
     },
   ];
 
@@ -50,7 +53,7 @@ const Element = () => {
     { key: 0, text: 'Todos', value: '' },
     { key: 1, text: 'Corrupción', value: 'Corrupción' },
     { key: 2, text: 'Educación', value: 'Educación' },
-    { key: 2, text: 'Política', value: 'Política' },
+    { key: 3, text: 'Política', value: 'Política' },
   ];
   const subtopics = {
     Todos: [{ key: 0, text: 'Todos', value: '' }],
@@ -60,11 +63,11 @@ const Element = () => {
     ],
     Educación: [
       { key: 0, text: 'Todos', value: '' },
-      { key: 2, text: 'Brecha de genéro', value: 'Brecha de genéro' },
+      { key: 1, text: 'Brecha de genéro', value: 'Brecha de genéro' },
     ],
     Política: [
       { key: 0, text: 'Todos', value: '' },
-      { key: 2, text: 'Sufragio universal', value: 'Sufragio universal' },
+      { key: 1, text: 'Sufragio universal', value: 'Sufragio universal' },
     ],
   };
 
@@ -76,14 +79,14 @@ const Element = () => {
             setTopic(value);
             setSubtopic('');
           }}
-          options={topics}
           placeholder="Tema"
           selection
+          options={topics}
           value={topic}
         />
         <Dropdown
           onChange={(e, { value }) => setSubtopic(value)}
-          options={subtopics[topic]}
+          options={subtopics ? subtopics[topic] : ['HOLA']}
           placeholder="Subtema"
           selection
           value={subtopic}
@@ -92,13 +95,22 @@ const Element = () => {
       <div className="cardsDiv">
         {filtered &&
           filtered.map((element) => {
+            const anchor = element.topic + '-' + element.subtopic;
             return (
-              <Card fluid style={{ padding: '1rem' }} id={element.anchor}>
+              <Card
+                key={element.topic + element.subtopic}
+                fluid
+                style={{ padding: '1rem' }}
+                id={anchor}>
                 <Card.Content>
                   <Card.Header style={{ marginBottom: '0.5rem' }}>
-                    <AnchorLink offset="200" href={`#${element.anchor}`}>
+                    <Link
+                      to={`/#${anchor}`}
+                      scroll={(el) =>
+                        el.scrollIntoView({ behavior: 'auto', block: 'end' })
+                      }>
                       {element.topic} - {element.subtopic}
-                    </AnchorLink>
+                    </Link>
                   </Card.Header>
                   <div style={{ display: 'flex', flex: 1 }}>
                     <div className="contentParentDiv">
@@ -110,8 +122,7 @@ const Element = () => {
                     <div className="shareParentDiv">
                       <Share
                         shareUrl={
-                          'https://analitica.hablemosdelperu.com#' +
-                          element.anchor
+                          'https://analitica.hablemosdelperu.com#' + anchor
                         }
                         text={`${element.topic} - ${element.subtopic}`}
                         imageUrl={element.image}
