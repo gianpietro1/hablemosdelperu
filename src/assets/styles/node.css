@@ -1,0 +1,18 @@
+.node {
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.nodeText {
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8rem;
+}
+
+.nodeText a {
+  color: white;
+}
+
+.nodeText a:hover {
+  color: yellow;
+}

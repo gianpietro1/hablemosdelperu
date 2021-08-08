@@ -1,0 +1,20 @@
+.divText {
+  padding: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.divText a {
+  color: black;
+}
+
+.activeText {
+  background-color: yellow;
+}
+
+.activeText a {
+  font-weight: bold;
+}
+
+.divText a:hover {
+  color: blue;
+}
