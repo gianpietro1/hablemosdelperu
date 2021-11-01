@@ -1,0 +1,48 @@
+.contentContainer {
+  position: relative;
+  width: inherit;
+}
+
+.navigationDiv {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  position: fixed;
+  z-index: 800;
+  height: 120px;
+  top: 200px;
+  align-items: flex-end;
+  left: 0;
+  right: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navigationDiv .ui.selection.dropdown {
+  width: 100%;
+  min-width: 10em !important;
+  max-height: 30px;
+}
+
+.cardsDiv {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 186px;
+}
+
+.contentParentDiv img {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.contentParentDiv {
+  display: flex;
+  flex: 8;
+}
+
+.shareParentDiv {
+  display: flex;
+  flex: 1;
+}

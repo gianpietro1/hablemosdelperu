@@ -4,15 +4,15 @@ import { HashLink } from 'react-router-hash-link';
 import { useHistory } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 import { Context as MenuContext } from '../context/MenuContext';
-
-import { db } from './db.js';
+import { db } from '../assets/tempDB/constitutionTextDB.js';
 import '../assets/styles/text.css';
 
 const Text = () => {
-  const { changeActiveMenu } = useContext(MenuContext);
+  const { changeActiveMenu, changeActiveSubMenu } = useContext(MenuContext);
 
   useEffect(() => {
-    changeActiveMenu('text');
+    changeActiveMenu('constitution');
+    changeActiveSubMenu('tab02');
   }, []);
 
   let history = useHistory();
@@ -44,7 +44,7 @@ const Text = () => {
               : 'divText'
           }>
           <HashLink
-            to={`/#${anchor}`}
+            to={`/constitucion/#${anchor}`}
             scroll={(el) =>
               el.scrollIntoView({ behavior: 'auto', block: 'end' })
             }>

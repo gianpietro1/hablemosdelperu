@@ -1,0 +1,31 @@
+.shareButton {
+  max-width: 40px;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+.shareDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  border-left: 1px solid lightgray;
+  padding-left: 1.5rem;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 701px) {
+  .shareButton {
+    max-width: 40px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 700px) {
+  .shareButton {
+    max-width: 20px;
+  }
+}

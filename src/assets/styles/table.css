@@ -1,0 +1,33 @@
+.tddata,
+.thdata {
+  text-align: center !important;
+}
+
+.firstColumn {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  text-align: left !important;
+}
+
+.firstRow {
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1000;
+}
+
+.tableDiv {
+  margin: 10px;
+  overflow: auto;
+  width: 1200px;
+  height: 600px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.firstRowColumn {
+  z-index: 1200;
+}

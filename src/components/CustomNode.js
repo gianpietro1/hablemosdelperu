@@ -42,7 +42,7 @@ const CustomNode = (props) => {
         <HashLink
           to={{ pathname: '/texto', hash: `#${anchor}` }}
           scroll={(el) =>
-            el.scrollIntoView({ behavior: 'auto', block: 'end' })
+            el.scrollIntoView({ behavior: 'auto', block: 'start' })
           }>
           {capitalizedContent}
         </HashLink>
